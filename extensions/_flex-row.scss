@@ -1,0 +1,7 @@
+%flex_row {
+    display: flex;
+
+    &:before, &:after {
+        display: none;
+    }
+}
