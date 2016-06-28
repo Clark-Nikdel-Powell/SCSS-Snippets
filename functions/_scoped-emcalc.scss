@@ -1,3 +1,0 @@
-@function scoped-emcalc( $scoped_unit, $base_unit ) {
-    @return (strip-unit( rem-calc( $scoped_unit, $base_unit ) ) * 1em);
-}

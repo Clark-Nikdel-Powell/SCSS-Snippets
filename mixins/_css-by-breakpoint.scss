@@ -1,0 +1,24 @@
+@mixin css_by_breakpoint($breakpoint-map) {
+
+	@each $breakpoint, $map in $breakpoint-map {
+
+		@if 'default' == $breakpoint {
+
+			@each $property, $value in $map {
+				#{$property}: #{$value};
+			}
+		} @else {
+
+			@if 'small' == $breakpoint {
+				$breakpoint: small only;
+			}
+
+			@include breakpoint($breakpoint) {
+
+				@each $property, $value in $map {
+					#{$property}: #{$value};
+				}
+			}
+		}
+	}
+}

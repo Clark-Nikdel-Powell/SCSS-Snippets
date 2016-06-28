@@ -1,20 +1,16 @@
 @mixin color_bar($color) {
     position: relative;
 
-    &, &:before, &:after {
+    &, &:before {
         background-color: $color;
     }
-    &:before, &:after {
+    &:before {
         @extend %pseudo;
-        width: 100vw;
+        width: 200vw;
         height: 100%;
         top: 0;
     }
     &:before {
         left: -100vw;
     }
-    &:after {
-        left: 100%;
-    }
-
 }

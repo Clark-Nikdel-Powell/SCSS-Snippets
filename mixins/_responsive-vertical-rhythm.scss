@@ -1,0 +1,9 @@
+@mixin responsive_vertical_rhythm( $property:margin-bottom, $multiplier:1 ) {
+
+	@each $breakpoint-name, $vr-unit in $vertical-rhythm-map {
+
+		@include breakpoint($breakpoint-name) {
+			#{$property}: $vr-unit * $multiplier;
+		}
+	}
+}

@@ -5,8 +5,15 @@
 @import "extensions/flex-row";
 @import "extensions/pseudo";
 
-@import "functions/scoped-emcalc";
+@import "functions/map-fetch";
+@import "functions/strip-unit";
 
+@import "mixins/aspect-ratio";
 @import "mixins/color-bar";
+@import "mixins/css-by-breakpoint";
+@import "mixins/flexible-font-sizes";
 @import "mixins/font-face";
+@import "mixins/font-smoothing";
+@import "mixins/placeholder-color";
 @import "mixins/pseudo-triangle";
+@import "mixins/responsive-vertical-rhythm";
