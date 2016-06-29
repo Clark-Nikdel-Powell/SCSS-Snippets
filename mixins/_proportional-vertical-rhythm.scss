@@ -1,0 +1,27 @@
+/**
+ * proportional_vertical_rhythm
+ *
+ * Like responsive vertical rhythm, but takes the amount in pixels, rather than an amount in VR units.
+ * Useful when you know the pixel value and a specific breakpoint, but not the VR value.
+ * The function calculates the amount of vertical rhythm based on the pixel equivalent of a base breakpoint.
+ * For instance, if something is meant to have 50px of padding-top on a large breakpoint of 1024px, the proportional
+ * pixel equivalent at the 768px breakpoint would be 37.5px ( 50 * 768 ) / 1024.
+**/
+@mixin proportional_vertical_rhythm( $property:margin-bottom, $amount-in-pixels:$vr-large, $base:large ) {
+
+	$base-vr: map_get($vertical-rhythm-map, $base);
+	$base-breakpoint-value: map_get($breakpoints, $base);
+
+	@each $breakpoint-name, $vr-unit in $vertical-rhythm-map {
+
+		$current-breakpoint-value: map_get($breakpoints, $breakpoint-name);
+
+		// If the current breakpoint is the base, the pixel-equivalent amount will equal the original amount,
+		// since $base-breakpoint-value and $current-breakpoint-value are equal.
+		$pixel-equivalent-amount: ($amount-in-pixels * $current-breakpoint-value) / $base-breakpoint-value;
+
+		@include breakpoint($breakpoint-name) {
+			#{$property}: $pixel-equivalent-amount / $vr-unit;
+		}
+	}
+}
