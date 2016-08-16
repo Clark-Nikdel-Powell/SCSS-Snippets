@@ -1,8 +1,11 @@
-/// Striped Gradient
-/// @author Hugo Giraudel
-/// @param {Direction} $direction - Gradient direction
-/// @param {List} $colors - List of colors
-/// @output `background-image` if several colors, `background-color` if only one
+/*——————————————————————————————————————————————————————————————————————————————
+/  Striped Gradient
+——————————————————————————————————————————————————————————————————————————————
+@author Hugo Giraudel
+@param {Direction} $direction - Gradient direction
+@param {List} $colors - List of colors
+@output `background-image` if several colors, `background-color` if only one
+*/
 @mixin gradient-striped($direction, $colors) {
 	$length: length($colors);
 

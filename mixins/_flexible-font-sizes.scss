@@ -1,3 +1,6 @@
+/*——————————————————————————————————————————————————————————————————————————————
+/  Flexible Font Sizes
+——————————————————————————————————————————————————————————————————————————————*/
 @mixin flexible_font_sizes( $min-font-size, $max-font-size, $min-width, $max-width ) {
 
 	$font-size-difference: strip-unit($max-font-size - $min-font-size);
