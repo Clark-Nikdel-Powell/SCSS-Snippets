@@ -1,0 +1,18 @@
+/*——————————————————————————————————————————————————————————————————————————————
+/  Set Font Sizes and Line Heights By Tag
+——————————————————————————————————————————————————————————————————————————————*/
+@mixin set_responsive_font_sizes_and_line_heights_by_tag( $font-sizes-and-line-height-map, $tag ) {
+
+	@each $breakpoint-size, $tags-map in $font-sizes-and-line-height-map {
+
+		$font-size: map_fetch($tags-map, $tag fz);
+		$current-vr-unit: map_get($vertical-rhythm-map, $breakpoint-size);
+		$line-height-multiplier: map_fetch($tags-map, $tag lh);
+
+		@include breakpoint($breakpoint-size) {
+			font-size: rem-calc($font-size);
+			line-height: rem-calc($current-vr-unit * $line-height-multiplier);
+		}
+	}
+}
+

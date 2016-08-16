@@ -1,0 +1,22 @@
+/*——————————————————————————————————————————————————————————————————————————————
+/  Set Responsive Font Sizes and Line Heights by Group
+——————————————————————————————————————————————————————————————————————————————*/
+@mixin set_responsive_font_sizes_and_line_heights_by_group( $font-sizes-and-line-height-map ) {
+
+	@each $breakpoint-size, $tags-map in $font-sizes-and-line-height-map {
+
+		@each $tag, $fz-and-lh-map in $tags-map {
+
+			$font-size: map_get($fz-and-lh-map, fz);
+			$current-vr-unit: map_get($vertical-rhythm-map, $breakpoint-size);
+			$line-height-multiplier: map_get($fz-and-lh-map, lh);
+
+			@include breakpoint($breakpoint-size) {
+				#{$tag} {
+					font-size: rem-calc($font-size);
+					line-height: rem-calc($current-vr-unit * $line-height-multiplier);
+				}
+			}
+		}
+	}
+}

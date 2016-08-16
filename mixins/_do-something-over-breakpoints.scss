@@ -1,0 +1,36 @@
+/*——————————————————————————————————————————————————————————————————————————————
+/  Do Something Over Breakpoints
+——————————————————————————————————————————————————————————————————————————————
+Say you've got a variable that changes based on the breakpoint. Whether you're dealing
+with a vertical rhythm unit or a site margin, you can layer other mixins on top of this
+one to have a simple loop. Hopefully it'll keep our CSS By Breakpoint definitions shorter.
+*/
+@mixin do_something_over_breakpoints( $properties, $multipliers, $increment-map ) {
+
+	// Set up counter variable so that we can get the current multiplier
+	// as we loop through breakpoints.
+	$counter: 1;
+
+	@each $breakpoint-name, $increment-unit in $increment-map {
+
+		// Check to make sure we haven't run out of multipliers. If there isn't one set
+		// for this breakpoint, default to the last multiplier.
+		@if $counter > length($multipliers) {
+			$counter: length($multipliers);
+		}
+
+		// Get the current multiplier
+		$current-multiplier: nth($multipliers, $counter);
+
+		// Set up the media query.
+		@include breakpoint($breakpoint-name) {
+
+			@each $property in $properties {
+				#{$property}: rem-calc($increment-unit * $current-multiplier);
+			}
+		}
+
+		// Increment the counter.
+		$counter: $counter + 1;
+	}
+}
