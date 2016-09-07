@@ -5,7 +5,7 @@
     position: relative;
 
     &, &:before {
-        background-color: $color;
+        background: $color;
     }
     &:before {
         @extend %pseudo;
