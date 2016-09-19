@@ -1,17 +1,21 @@
 /*——————————————————————————————————————————————————————————————————————————————
 /  Site Margin
 ——————————————————————————————————————————————————————————————————————————————*/
-@mixin site_margin( $indent_or_outdent: 'indent' ) {
+@mixin site_margin( $indent_or_outdent: 'indent', $properties: '' ) {
 
 	$properties: '';
 	$multiplier: 0;
 
 	@if 'indent' == $indent_or_outdent {
-		$properties: (padding-left, padding-right);
+		@if ( '' == $properties ) {
+			$properties: (padding-left, padding-right);
+		}
 		$multiplier: 1;
 	}
 	@if 'outdent' == $indent_or_outdent {
-		$properties: (margin-left, margin-right);
+		@if ( '' == $properties ) {
+			$properties: (margin-left, margin-right);
+		}
 		$multiplier: -1;
 	}
 
