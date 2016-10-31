@@ -22,11 +22,14 @@ one to have a simple loop. Hopefully it'll keep our CSS By Breakpoint definition
 		// Get the current multiplier
 		$current-multiplier: nth($multipliers, $counter);
 
-		// Set up the media query.
-		@include breakpoint($breakpoint-name) {
+		@if (null != $current-multiplier) {
 
-			@each $property in $properties {
-				#{$property}: rem-calc($increment-unit * $current-multiplier);
+			// Set up the media query.
+			@include breakpoint($breakpoint-name) {
+
+				@each $property in $properties {
+					#{$property}: rem-calc($increment-unit * $current-multiplier);
+				}
 			}
 		}
 
