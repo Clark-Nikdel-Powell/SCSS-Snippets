@@ -1,7 +1,7 @@
 /*——————————————————————————————————————————————————————————————————————————————
 /  Set Font Sizes and Line Heights By Tag
 ——————————————————————————————————————————————————————————————————————————————*/
-@mixin set_responsive_font_sizes_and_line_heights_by_tag( $tag, $font-sizes-and-line-height-map: $header-sizes-and-line-heights ) {
+@mixin set_responsive_font_sizes_and_line_heights_by_tag( $tag, $include_line_height:true, $font-sizes-and-line-height-map: $header-sizes-and-line-heights ) {
 
 	@each $breakpoint-size, $tags-map in $font-sizes-and-line-height-map {
 
@@ -12,10 +12,13 @@
 		@include breakpoint($breakpoint-size) {
 			font-size: rem-calc($font-size);
 
-			@if (unitless($line-height-multiplier)) {
-				line-height: rem-calc($current-vr-unit * $line-height-multiplier);
-			} @else {
-				line-height: $line-height-multiplier;
+			@if (true == $include_line_height) {
+
+				@if (unitless($line-height-multiplier)) {
+					line-height: rem-calc($current-vr-unit * $line-height-multiplier);
+				} @else {
+					line-height: $line-height-multiplier;
+				}
 			}
 		}
 	}
