@@ -8,6 +8,9 @@
 @import "functions/index-from-list";
 @import "functions/map-fetch";
 @import "functions/strip-unit";
+@import "functions/map-deep-get";
+@import "functions/map-has-nested-keys";
+@import "functions/z";
 
 @import "mixins/baseline-overlay";
 @import "mixins/color-bar";
@@ -16,7 +19,10 @@
 @import "mixins/flexible-font-sizes";
 @import "mixins/font-face";
 @import "mixins/font-smoothing";
+@import "mixins/full-width-img";
 @import "mixins/gradient-striped";
+@import "mixins/match-site-width";
+@import "mixins/match-site-width-absolutely";
 @import "mixins/placeholder";
 @import "mixins/proportional-vertical-rhythm";
 @import "mixins/round-up-vertical-rhythm";
@@ -24,3 +30,4 @@
 @import "mixins/set-responsive-font-sizes-and-line-heights-by-tag";
 @import "mixins/site-margin";
 @import "mixins/vertical-rhythm";
+@import "mixins/z";

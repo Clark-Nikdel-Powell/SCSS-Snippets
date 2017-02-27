@@ -1,0 +1,18 @@
+//——————————————————————————————————————————————————————————————————————————————
+//  Match Site Width
+//——————————————————————————————————————————————————————————————————————————————
+// Match the site width from 100% on smaller screens, up until we get to the site-width
+@mixin match_site_width($breakpoint: $large-breakpoint) {
+
+	@include site_margin(outdent);
+
+	@include breakpoint($breakpoint) {
+		margin-left: calc((100vw - #{$content-width}) / -2);
+		margin-right: calc((100vw - #{$content-width}) / -2);
+	}
+
+	@include breakpoint($site-width) {
+		margin-left: ($site-width - $content-width) / -2;
+		margin-right: ($site-width - $content-width) / -2;
+	}
+}

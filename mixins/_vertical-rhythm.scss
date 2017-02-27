@@ -3,5 +3,5 @@
 ——————————————————————————————————————————————————————————————————————————————*/
 @mixin vertical_rhythm( $properties, $multipliers ) {
 
-	@include do_something_over_breakpoints( $properties, $multipliers, $vertical-rhythm-map );
+	@include do_something_over_breakpoints_constant($properties, $multipliers, $grid-unit);
 }

@@ -37,3 +37,30 @@ one to have a simple loop. Hopefully it'll keep our CSS By Breakpoint definition
 		$counter: $counter + 1;
 	}
 }
+
+//——————————————————————————————————————————————————————————————————————————————
+//  Do something over breakpoints with a constant
+//——————————————————————————————————————————————————————————————————————————————
+@mixin do_something_over_breakpoints_constant( $properties, $multipliers, $constant ) {
+
+	$counter: 1;
+
+	@each $current-multiplier in $multipliers {
+
+		$current-breakpoint: nth($breakpoints, $counter);
+
+		@if (null != $current-multiplier) {
+
+			// Set up the media query.
+			@include breakpoint($current-breakpoint) {
+
+				@each $property in $properties {
+					#{$property}: rem-calc($constant * $current-multiplier);
+				}
+			}
+		}
+
+		// Increment the counter.
+		$counter: $counter + 1;
+	}
+}

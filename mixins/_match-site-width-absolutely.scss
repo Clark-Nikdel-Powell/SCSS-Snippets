@@ -1,0 +1,20 @@
+//——————————————————————————————————————————————————————————————————————————————
+//  Match Site Width Absolutely
+//——————————————————————————————————————————————————————————————————————————————
+@mixin match_site_width_absolutely() {
+	@include scut-absolute(0 0 0 0);
+	width: 100vw;
+	max-width: $site-width;
+	height: 100%;
+	margin-left: 50%;
+	overflow: hidden;
+
+	@include css_by_breakpoint((
+		default: (
+			left: -50vw,
+		),
+		$site-width: (
+			left: ($site-width / 2) * -1,
+		)
+	));
+}
