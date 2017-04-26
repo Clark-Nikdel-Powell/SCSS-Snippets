@@ -1,6 +1,6 @@
 {
 	"name": "cnp-scss-snippets",
-	"version": "1.10.0",
+	"version": "2.0.0",
 	"description": "Common SCSS functions, mixins and extensions.",
 	"author": "CNP <wordpress@clarknikdelpowell.com>",
 	"repository": {
