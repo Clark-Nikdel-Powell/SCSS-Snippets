@@ -8,11 +8,13 @@
         background: $color;
     }
     &:before {
-        @extend %pseudo;
-        width: 200vw;
-        height: 100%;
-        top: 0;
         background: $color;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 200vw;
     }
     &:before {
         left: -100vw;
