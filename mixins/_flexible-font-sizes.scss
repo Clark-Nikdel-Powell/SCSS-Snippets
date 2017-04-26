@@ -9,5 +9,4 @@
 	@media screen and #{breakpoint($min-width)} and #{breakpoint($max-width down)} {
 		font-size: calc( #{$min-font-size} + #{$font-size-difference} * ( ( 100vw - #{$min-width} ) / #{$viewport-difference} ) );
 	}
-
 }
