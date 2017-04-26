@@ -13,10 +13,10 @@
 
 		@include css_by_breakpoint((
 			default: (
-				transform: translateX(calc(-50% + 50vw)) translateY(-50%),
+				transform: translateX(-50%) translateX(50vw) translateY(-50%),
 			),
 			$site-width: (
-				transform: translateX(calc(-50% + (#{$site-width} / 2))) translateY(-50%),
+				transform: translateX(-50%) translateX( #{$site-width / 2} ) translateY(-50%),
 			)
 		));
 	}
@@ -24,10 +24,10 @@
 
 		@include css_by_breakpoint((
 			default: (
-				transform: translateX(calc(-50% + 50vw)),
+				transform: translateX(-50%) translateX(50vw),
 			),
 			$site-width: (
-				transform: translateX(calc(-50% + (#{$site-width} / 2))),
+				transform: translateX(-50%) translateX( #{$site-width / 2} ),
 			)
 		));
 	}
