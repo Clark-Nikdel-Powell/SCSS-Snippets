@@ -1,0 +1,17 @@
+/**
+ * Computes a CSS calc function that interpolates a value from
+ * A to B over A-viewport-width to B-viewport-width.
+ * Requires a media query to cap the value at B.
+ *
+ * @param $from pixel The starting value.
+ * @param $to pixel The end value.
+ * @param $from-width pixel The starting breakpoint.
+ * @param $to-width pixel The ending breakpoint.
+ */
+
+@function between($from, $to, $from-width, $to-width) {
+	$slope: ($to - $from) / ($to-width - $from-width);
+	$base: $from - $slope * $from-width;
+
+	@return calc(#{$base} + #{100vw * $slope});
+}
