@@ -7,6 +7,12 @@
 	max-width: $site-width;
 	min-height: 100%;
 
+	@include css_by_breakpoint((
+	    $site-width: (
+		max-width: none,
+	    ),
+	));
+	
 	@if 'center' == $position {
 		position: relative;
 		top: 50%;
