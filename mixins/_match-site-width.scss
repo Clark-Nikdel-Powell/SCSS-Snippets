@@ -2,17 +2,28 @@
 //  Match Site Width
 //——————————————————————————————————————————————————————————————————————————————
 // Match the site width from 100% on smaller screens, up until we get to the site-width
-@mixin match_site_width($breakpoint: $large-breakpoint) {
+@mixin match_site_width($properties:(margin-left, margin-right)) {
 
-	@include site_margin(outdent);
+	@include site_margin(outdent, $properties);
 
-	@include breakpoint($breakpoint) {
-		margin-left: calc((100vw - #{$content-width}) / -2);
-		margin-right: calc((100vw - #{$content-width}) / -2);
+	$site-margin-values: map-values($site-margin-map);
+	$last-site-margin-value: nth( $site-margin-values, length($site-margin-values));
+
+	@include breakpoint($content-width) {
+		@each $property in $properties {
+			#{$property}: calc((100vw - (#{$content-width} - #{$last-site-margin-value * 2})) / -2);
+		}
+	}
+
+	@include breakpoint($content-width + ($last-site-margin-value * 2)) {
+		@each $property in $properties {
+			#{$property}: calc((100vw - #{$content-width}) / -2);
+		};
 	}
 
 	@include breakpoint($site-width) {
-		margin-left: ($site-width - $content-width) / -2;
-		margin-right: ($site-width - $content-width) / -2;
+		@each $property in $properties {
+			#{$property}: ($site-width - $content-width) / -2;
+		};
 	}
 }
