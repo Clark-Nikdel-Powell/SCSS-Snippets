@@ -1,15 +1,22 @@
 /*——————————————————————————————————————————————————————————————————————————————
 /  Between with media queries
 ——————————————————————————————————————————————————————————————————————————————*/
-@mixin between_with_media_queries( $property, $from, $to, $from-width, $to-width ) {
+@mixin between_with_media_queries( $properties, $from, $to, $from-width, $to-width, $continue:true ) {
 
 	$slope: ($to - $from) / ($to-width - $from-width);
 	$base: $from - $slope * $from-width;
 
-	@media screen and #{breakpoint($from-width)} and #{breakpoint($to-width down)} {
-		#{$property}: calc(#{$base} + #{100vw * $slope});
-	}
-	@media screen and #{breakpoint($to-width)} {
-		#{$property}: $to;
+	@each $property in $properties {
+
+		@media screen and #{breakpoint($from-width)} and #{breakpoint($to-width - 1 down)} {
+			#{$property}: calc(#{$base} + #{100vw * $slope});
+		}
+
+		@if true == $continue {
+
+			@media screen and #{breakpoint($to-width)} {
+				#{$property}: $to;
+			}
+		}
 	}
 }
