@@ -1,0 +1,14 @@
+//——————————————————————————————————————————————————————————————————————————————
+//  Flex Wrap to No-Wrap
+//——————————————————————————————————————————————————————————————————————————————
+@mixin flex_wrap_to_no_wrap($breakpoint: $medium-breakpoint) {
+
+	@include css_by_breakpoint((
+		default: (
+			flex-wrap: wrap,
+		),
+		$breakpoint: (
+			flex-wrap: nowrap,
+		),
+	));
+}
