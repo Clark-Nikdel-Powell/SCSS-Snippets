@@ -3,7 +3,6 @@
 ——————————————————————————————————————————————————————————————————————————————*/
 @mixin site_margin( $indent_or_outdent: 'indent', $properties: '' ) {
 
-	$properties: '';
 	$multiplier: 0;
 
 	@if 'indent' == $indent_or_outdent {
