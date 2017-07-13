@@ -5,19 +5,22 @@
 @import "extensions/flex-row";
 @import "extensions/pseudo";
 
+@import "functions/between";
 @import "functions/index-from-list";
 @import "functions/map-fetch";
-@import "functions/strip-unit";
 @import "functions/map-deep-get";
 @import "functions/map-has-nested-keys";
+@import "functions/strings";
+@import "functions/strip-unit";
 @import "functions/z";
 
-@import "mixins/color-bar";
 @import "mixins/css-by-breakpoint";
+@import "mixins/between-with-media-queries";
+@import "mixins/color-bar";
 @import "mixins/do-something-over-breakpoints";
 @import "mixins/font-face";
 @import "mixins/font-smoothing";
-@import "mixins/full-width-img";
+@import "mixins/flex-wrap-to-no-wrap";
 @import "mixins/gradient-striped";
 @import "mixins/match-site-width";
 @import "mixins/match-site-width-absolutely";
