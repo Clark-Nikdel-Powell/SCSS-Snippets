@@ -24,27 +24,27 @@ Another workhorse of our custom site builds, I use css_by_breakpoint as a shorth
 
 ```scss
 @include css_by_breakpoint((
-					default: (
-						margin-left: $cnp-small-grid-row-margin * -1,
-						margin-right: $cnp-small-grid-row-margin * -1,
-					),
-          small: (
-						margin-left: $cnp-small-grid-row-margin * -1,
-						margin-right: $cnp-small-grid-row-margin * -1,
-					),
-					medium: (
-						margin-left: $cnp-medium-grid-row-margin * -1,
-						margin-right: $cnp-medium-grid-row-margin * -1,
-					),
-					$interior-content-width: (
-						margin-left: calc((100vw - #{$interior-content-width} + (#{$cnp-medium-grid-row-margin} * 2)) / -2),
-						margin-right: calc((100vw - #{$interior-content-width} + (#{$cnp-medium-grid-row-margin} * 2)) / -2),
-					),
-					$site-width: (
-						margin-left: ($site-width - $interior-content-width) / -2,
-						margin-right: ($site-width - $interior-content-width) / -2,
-					),
-				));
+	default: (
+		margin-left: $cnp-small-grid-row-margin * -1,
+		margin-right: $cnp-small-grid-row-margin * -1,
+	),
+	small: (
+		margin-left: $cnp-small-grid-row-margin * -1,
+		margin-right: $cnp-small-grid-row-margin * -1,
+	),
+	medium: (
+		margin-left: $cnp-medium-grid-row-margin * -1,
+		margin-right: $cnp-medium-grid-row-margin * -1,
+	),
+	$interior-content-width: (
+		margin-left: calc((100vw - #{$interior-content-width} + (#{$cnp-medium-grid-row-margin} * 2)) / -2),
+		margin-right: calc((100vw - #{$interior-content-width} + (#{$cnp-medium-grid-row-margin} * 2)) / -2),
+	),
+	$site-width: (
+		margin-left: ($site-width - $interior-content-width) / -2,
+		margin-right: ($site-width - $interior-content-width) / -2,
+	),
+));
 ```
 
 Some notes on this example: 
@@ -124,7 +124,7 @@ Cross-browser placeholder styles. Example:
 
 ```scss
 @include placeholder() {
-  color: $gray-4f;
+	color: $gray-4f;
 }
 ```
 
