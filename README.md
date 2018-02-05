@@ -148,7 +148,7 @@ However, that's not very flexible. So after many iterations, I've finally landed
 		'font': $trim-bold,
 		'weight': normal,
 		'color': $purple,
-    'include_properties': true,
+		'include_properties': true,
 	); // <-- The only parameters used by the mixin are tag, font, weight, color, and include_properties.
 	$args: map_merge($defaults, $settings); // <-- Similar to wp_parse_args, we can set defaults but allow them to be overwritten.
 
@@ -214,10 +214,6 @@ $header-styles: (
 			'letter-spacing': scut-em(.53, 14),
 			'line-height': scut-em(23, 14),
 		),
-		'tagline': (
-			'font-size': scut-em(10),
-			'letter-spacing': scut-em(.38, 10),
-		),
 		'btn': (
 			'font-size': scut-rem(12),
 			'height': scut-em(40, 12),
@@ -246,4 +242,10 @@ Takes a layer name and returns the z-index value from the `$z-layers` variable s
 
 ## Extensions
 
+### %psuedo
+
+A quick pseudo-element generator. Handy, sometimes.
+
 ## Functions
+
+Most of the functions used here are for utility purposes; that is, they're meant to aid you in building mixins, rather than for direct use. Most of them I copied from other libraries or tutorials. Use as necessary.
