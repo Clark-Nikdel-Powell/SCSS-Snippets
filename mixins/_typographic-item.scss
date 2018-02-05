@@ -1,0 +1,37 @@
+@mixin typographic-item( $settings:() ) {
+	$defaults: (
+		'include_properties': true,
+	);
+	$args: map_merge($defaults, $settings);
+
+	$font: map_get($args, font);
+	$tag: map_get($args, tag);
+	$weight: map_get($args, weight);
+	$color: map_get($args, color);
+
+	@if '' != $color {
+		color: $color;
+	}
+  	@if $font != $body-font-family {
+		font-family: $font;
+	}
+	@if '' != $weight {
+		font-weight: $weight;
+	}
+
+	// Load in additional properties from the $header-styles variable in _site-settings.scss.
+	@if map_get($args, 'include_properties') == true {
+		@each $size, $headers in $header-styles {
+			@include breakpoint($size) {
+
+				$item-tag-properties: map_get($headers, $tag);
+
+				@if $item-tag-properties != null {
+					@each $property, $value in $item-tag-properties {
+						#{$property}: $value;
+					}
+				}
+			}
+		}
+	}
+}
